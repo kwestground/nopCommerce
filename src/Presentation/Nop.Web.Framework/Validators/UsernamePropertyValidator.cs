@@ -39,13 +39,13 @@ namespace Nop.Web.Framework.Validators
         /// <returns>Result</returns>
         public static bool IsValid(string username, CustomerSettings customerSettings)
         {
-            if (!customerSettings.ValidateUsernameEnabled || string.IsNullOrEmpty(customerSettings.UsernameValidationRule))
+            if (!customerSettings.UsernameValidationEnabled || string.IsNullOrEmpty(customerSettings.UsernameValidationRule))
                 return true;
 
             if (string.IsNullOrEmpty(username))
                 return false;
 
-            return customerSettings.ValidateUsernameUseRegex
+            return customerSettings.UsernameValidationUseRegex
                 ? Regex.IsMatch(username, customerSettings.UsernameValidationRule, RegexOptions.CultureInvariant | RegexOptions.IgnoreCase)
                 : username.All(l => customerSettings.UsernameValidationRule.Contains(l));
         }

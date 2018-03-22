@@ -560,26 +560,26 @@ set @resources='
   <LocaleResource Name="Account.Fields.Username.NotValid">
     <Value>The username is not valid</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.ValidateUsernameEnabled">
-    <Value>Username validating is enabled</Value>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationEnabled">
+    <Value>Username validation is enabled</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.ValidateUsernameEnabled.Hint">
-    <Value>Check to enable validating a username (when registering or changing in "My Account")</Value>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationEnabled.Hint">
+    <Value>Check to enable username validation (when registering or changing on the "My Account" page)</Value>
   </LocaleResource>  
-  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.ValidateUsernameUseRegex">
-    <Value>Use regex for validating a username</Value>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationUseRegex">
+    <Value>Use regex for username validation</Value>
   </LocaleResource>
-  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.ValidateUsernameUseRegex.Hint">
-    <Value>Check to use a regular expression for validating a username (when registering or changing in "My Account")</Value>
+  <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationUseRegex.Hint">
+    <Value>Check to use a regular expression for username validation (when registering or changing on the "My Account" page)</Value>
   </LocaleResource>  
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationRule">
-    <Value>Usernames validation rule</Value>
+    <Value>Username validation rule</Value>
   </LocaleResource>  
   <LocaleResource Name="Admin.Configuration.Settings.CustomerUser.UsernameValidationRule.Hint">
-    <Value>Set the rule for usernames. You can specify a list of allowed characters for using in names, or specify a regular expression, in the latter case do not forget to set the "Use regex for validating a username" setting</Value>
+    <Value>Set the validation rule for username. You can specify a list of allowed characters or a regular expression. If you use a regular expression check the "Use regex for username validation" setting.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.Configuration.Settings.CustomerSettings.RegexValidationRule.Error">
-    <Value>The regular expression for validating username is wrong</Value>
+    <Value>The regular expression for username validation is incorrect</Value>
   </LocaleResource>   
 </Language>
 '
@@ -1126,18 +1126,18 @@ WHERE [Name] = N'adminareasettings.useisodatetimeconverterinjson'
 GO
 
 --new setting
-IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'customersettings.validateusernameenabled')
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'customersettings.usernamevalidationenabled')
 BEGIN
 	INSERT [Setting] ([Name], [Value], [StoreId])
-	VALUES (N'customersettings.validateusernameenabled', N'false', 0)
+	VALUES (N'customersettings.usernamevalidationenabled', N'false', 0)
 END
 GO
 
 --new setting
-IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'customersettings.validateusernameuseregex')
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'customersettings.usernamevalidationuseregex')
 BEGIN
 	INSERT [Setting] ([Name], [Value], [StoreId])
-	VALUES (N'customersettings.validateusernameuseregex', N'false', 0)
+	VALUES (N'customersettings.usernamevalidationuseregex', N'false', 0)
 END
 GO
 

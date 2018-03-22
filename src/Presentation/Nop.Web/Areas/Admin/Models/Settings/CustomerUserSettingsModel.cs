@@ -34,11 +34,11 @@ namespace Nop.Web.Areas.Admin.Models.Settings
             [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.CheckUsernameAvailabilityEnabled")]
             public bool CheckUsernameAvailabilityEnabled { get; set; }
 
-            [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.ValidateUsernameEnabled")]
-            public bool ValidateUsernameEnabled { get; set; }
+            [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.UsernameValidationEnabled")]
+            public bool UsernameValidationEnabled { get; set; }
 
-            [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.ValidateUsernameUseRegex")]
-            public bool ValidateUsernameUseRegex { get; set; }
+            [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.UsernameValidationUseRegex")]
+            public bool UsernameValidationUseRegex { get; set; }
 
             [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.UsernameValidationRule")]
             public string UsernameValidationRule { get; set; }

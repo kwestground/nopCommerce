@@ -1657,8 +1657,8 @@ namespace Nop.Web.Areas.Admin.Controllers
             var customerSettings = _settingService.LoadSetting<CustomerSettings>(storeScope);
 
             var lastUsernameValidationRule = customerSettings.UsernameValidationRule;
-            var lastValidateUsernameEnabled = customerSettings.ValidateUsernameEnabled;
-            var lastValidateUsernameUseRegex = customerSettings.ValidateUsernameUseRegex;
+            var lastUsernameValidationEnabledValue = customerSettings.UsernameValidationEnabled;
+            var lastUsernameValidationUseRegexValue = customerSettings.UsernameValidationUseRegex;
 
             var addressSettings = _settingService.LoadSetting<AddressSettings>(storeScope);
             var dateTimeSettings = _settingService.LoadSetting<DateTimeSettings>(storeScope);
@@ -1666,7 +1666,7 @@ namespace Nop.Web.Areas.Admin.Controllers
 
             customerSettings = model.CustomerSettings.ToEntity(customerSettings);
             
-            if (customerSettings.ValidateUsernameEnabled && customerSettings.ValidateUsernameUseRegex)
+            if (customerSettings.UsernameValidationEnabled && customerSettings.UsernameValidationUseRegex)
             {
                 try
                 {
@@ -1677,8 +1677,8 @@ namespace Nop.Web.Areas.Admin.Controllers
                 {
                     //restoring previous settings
                     customerSettings.UsernameValidationRule = lastUsernameValidationRule;
-                    customerSettings.ValidateUsernameEnabled = lastValidateUsernameEnabled;
-                    customerSettings.ValidateUsernameUseRegex = lastValidateUsernameUseRegex;
+                    customerSettings.UsernameValidationEnabled = lastUsernameValidationEnabledValue;
+                    customerSettings.UsernameValidationUseRegex = lastUsernameValidationUseRegexValue;
 
                     hasError = true;
                     ErrorNotification(_localizationService.GetResource("Admin.Configuration.Settings.CustomerSettings.RegexValidationRule.Error"));

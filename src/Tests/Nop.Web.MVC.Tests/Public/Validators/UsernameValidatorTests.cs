@@ -17,8 +17,8 @@ namespace Nop.Web.MVC.Tests.Public.Validators
             _customerSettings = new CustomerSettings
             {
                 UsernameValidationRule = "^a.*1$",
-                ValidateUsernameEnabled = true,
-                ValidateUsernameUseRegex = false
+                UsernameValidationEnabled = true,
+                UsernameValidationUseRegex = false
             };
 
             _validator = new TestValidator { v => v.RuleFor(x => x.Username).IsUsername(_customerSettings) };
@@ -36,7 +36,7 @@ namespace Nop.Web.MVC.Tests.Public.Validators
             _validator.Validate(new Person { Username = "a*1^" }).IsValid.ShouldBeTrue();
 
             //validation with regex
-            _customerSettings.ValidateUsernameUseRegex = true;
+            _customerSettings.UsernameValidationUseRegex = true;
             _validator.Validate(new Person { Username = "test_user" }).IsValid.ShouldBeFalse();
             _validator.Validate(new Person { Username = "a*1^" }).IsValid.ShouldBeFalse();
             _validator.Validate(new Person { Username = "a1" }).IsValid.ShouldBeTrue();
