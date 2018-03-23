@@ -13,7 +13,7 @@ namespace Nop.Core.Domain.Customers
         public bool UsernamesEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether users can check the availability of usernames (when registering or changing in 'My Account')
+        /// Gets or sets a value indicating whether users can check the availability of usernames (when registering or changing on the 'My Account' page)
         /// </summary>
         public bool CheckUsernameAvailabilityEnabled { get; set; }
 
@@ -23,12 +23,12 @@ namespace Nop.Core.Domain.Customers
         public bool AllowUsersToChangeUsernames { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether username will be validated (when registering or changing in 'My Account')
+        /// Gets or sets a value indicating whether username will be validated (when registering or changing on the 'My Account' page)
         /// </summary>
         public bool UsernameValidationEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether username will be validated using regex (when registering or changing in 'My Account')
+        /// Gets or sets a value indicating whether username will be validated using regex (when registering or changing on the 'My Account' page)
         /// </summary>
         public bool UsernameValidationUseRegex { get; set; }
 
